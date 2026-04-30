@@ -24,8 +24,35 @@
             padding: 6px 10px;
             text-align: right;
             justify-content: space-between;
+             opacity: 0;
+            animation: home 1s ease forwards;
+            animation-delay: 0.1s;
         }
-   
+           @keyframes home{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
+   .topquote{
+     opacity: 0;
+            animation: second 1s ease forwards;
+            animation-delay: 0.5s;
+   }
+    @keyframes second{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
         .buttons{ 
             text-decoration: none;
             margin: 30px;
@@ -50,37 +77,22 @@
         .types{
             color: white;
             font-size: large;
+                opacity: 0;
+            animation: second 1s ease forwards;
+            animation-delay: 1s;
         }
-         .images{ 
-            padding: 10px;
-            font-size: large;
-            align-items: center;
-            gap:20px;
-            justify-content: center;
-         }
-         .images img{
-            width:280px;
-            height:280px;
-            object-fit: cover;
-            border: 2px solid white;
-            box-shadow: 4px 4px 10px rgb(166, 188, 23);
-         }
-         .images h2{
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            
-         }
-    
-        .images img:hover{
-            width:280px;
-            height: 280px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            transform: scale(1.3);
-         }
+         @keyframes type{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
+        
+         
         .diet {
              width: 80%;
             height: 400px;
@@ -90,10 +102,23 @@
             padding: 20px;
             word-spacing: 10px;
            columns: 3;
+                opacity: 0;
+            animation: second 1.2s ease forwards;
+            animation-delay: 1.2s;
 column-gap: 40px;
 hyphens: auto;
             text-align: justify;
          }
+            @keyframes diet{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
          .lifecycle {
              width: 80%;
             height: 400px;
@@ -198,12 +223,8 @@ Sound of Crickets (Chirping):
 Mechanism: Male crickets produce sound through stridulation, which involves rubbing a scraper on one wing against ridges (a "file") on the other wing.
 Purpose: The main reasons for chirping are to attract female mates, advertise for a mate, and repel rival males. They also have specific, quieter songs for courtship and an aggressive "rivalry" call.
 Temperature Dependence: Cricket chirping speed varies with temperature; they chirp faster when it is warmer and slower in colder conditions.
-Hearing: Crickets hear with their legs, specifically using a "tympanum" located on their front legs.
-Activity: They are mainly nocturnal and are particularly active and vocal during warm, humid, or rainy nights. 
+ 
 
-Unique Behaviors:
-Raspy Crickets: Some types, like the raspy cricket, produce sounds by rubbing their hind legs against their abdomen or tapping their legs on plants, rather than wing rubbing.
-Noises and Activity: Only male crickets produce the familiar chirping sound. 
 
 </p>
 
@@ -227,8 +248,8 @@ Vulnerability: After molting, the cricket is bright white and soft, making it vu
 Duration: This stage lasts roughly 1 to 2 months.
 Adult Stage:
 Development: After the final molt, adults possess fully developed wings.
-Reproduction: Males attract females by chirping (stridulation)—rubbing their wings together.
-Lifespan: Adult crickets typically live for a few weeks to a few months, with the entire life cycle lasting about 60-90 days, heavily influenced by temperature.
+
+</p>
                 </p>
             </section>
         </div>

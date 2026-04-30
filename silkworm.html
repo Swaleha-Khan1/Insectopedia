@@ -29,10 +29,54 @@
             height: 40px !important;
             display: flex !important;
             /* padding: 6px 10px !important; */
+                   opacity: 0;
+            animation: home 1s ease forwards;
+            animation-delay: 0.1s;
             text-align: right !important;
             justify-content: space-between !important;
         }
-   
+           @keyframes home{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
+                .topquote{
+             opacity: 0;
+            animation: second 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+             @keyframes second{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
+    .types{
+            color: white;
+            font-size: large !important;
+     opacity: 0;
+            animation: second 1s ease forwards;
+            animation-delay: 1s;
+        }
+             @keyframes type{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
         body .buttons{ 
             text-decoration: none;
             margin: 30px !important;
@@ -51,31 +95,33 @@
             transition: transform 0.3s ease;
             transform: scale(1.3);
         }
-        body .types{
-            color: white ;
-            font-size: large !important ;
-        }
+     
         body .images{ 
             padding: 10px !important;
             font-size: large !important;
             align-items: center;
             gap:20px ;
             justify-content: center !important;
-         }
+        }
+
         body .images img{
             width:280px;
             height:280px;
             object-fit: cover;
             border: 2px solid white;
             box-shadow: 4px 4px 10px rgb(166, 188, 23);
+       
          }
+         
         body .images h2{
             display: flex;
             text-align: center;
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap !important;
-            
+                   opacity: 0;
+            animation: second 1s ease forwards;
+            animation-delay: 1.5s;
          }
     
         
