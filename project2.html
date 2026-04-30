@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsectoPedia</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        *{
+           margin-left: 20px;
+           margin-right: 20px;
+        }
+        body{
+            background-color: rgb(3, 51, 3);
+        }
+        .heading{
+            text-align: center;
+            font-size: xx-large;
+        }
+        .heading h1{
+            opacity: 0;
+            animation: home 1s ease forwards;
+            animation-delay: 0.2s;
+        }
+        .heading h3{
+            font-size: large;
+            word-spacing: 4px;
+            color:rgb(166, 188, 23);
+            text-align: center;
+            margin-top: 100px;
+            font-family: 'Courier New', Courier, monospace;
+              opacity: 0;
+            animation: home 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+        .next{
+            font-size: xx-large;
+            opacity: 0;
+            animation: home 1s ease forwards;
+            animation-delay: 1s;
+        }
+      .ex{
+    text-align: right;
+}
+.ex a{
+    font-size: xx-large;
+    text-decoration: none !important;
+    color: rgb(166, 188, 23);
+    opacity: 0;
+    animation: home 1s ease forwards;
+    animation-delay: 2s;
+}
+.ex a:hover{
+    color: white;
+    font-size: 40px;
+}
+        /* .ex a{
+            font-size: xx-large;
+            text-align: right;
+            text-decoration: none !important;
+            color: rgb(166, 188, 23);
+            margin-left: 900px;
+              opacity: 0;
+            animation: home 1s ease forwards;
+            animation-delay: 2s;
+        } 
+        .ex a:hover{
+            font-size: xx-large;
+            text-align: right;
+            text-decoration: none !important;
+            color:white;
+            font-size: 40px;
+            margin-left: 900px;
+        }*/
+        @keyframes home{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
+        .arrow{
+    text-align: right;
+    color: rgb(166, 188, 23);
+}
+        @keyframes scrolldown{
+            0%,100%{opacity: 0; transform: translateY(0);}
+            50%{opacity: 1; transform: translateY(15px);}
+        }
+        .arrow h1{
+            animation: scrolldown 2s ease-in-out infinite;
+        }
+        .stats{
+            display: flex;
+            text-wrap: wrap;
+        }
+        .one{
+            text-align: center;
+            font-size: xx-large;
+            color:  rgb(166, 188, 23);
+             display: flex;
+            text-wrap: wrap;
+             margin: auto;
+        }
+   
+         .three{
+            text-align: center;
+            font-size: xx-large;
+            color:  rgb(166, 188, 23);
+             display: flex;
+            text-wrap: wrap;
+             margin: auto;
+        }
+      
+         .five{
+            text-align: center;
+            font-size: xx-large;
+            color:  rgb(166, 188, 23);
+            display: flex;
+            text-wrap: wrap;
+ margin: auto;
+        }
+      
+         .seven{
+            text-align: center;
+            font-size: xx-large;
+            color:  rgb(166, 188, 23);
+            display: flex;
+            text-wrap: wrap;
+            margin: auto;
+        }
+        .k{
+             display: flex;
+            text-wrap: wrap;
+           
+        }
+        .types{
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: x-large;
+        }
+        .butterfly{
+            border: 2px solid black;
+          
+            display: flex;
+            text-wrap: wrap;
+              color: white;
+              text-decoration: none;
+        }
+        @keyframes img{
+            from{
+                opacity:0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity:1;
+                transform: translateY(0);
+            }
+        }
+      .butterfly img{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 30px;
+            animation: img 2s ease-in-out;
+            animation-delay: 0.5s;
+            
+        }
+        .butterfly img:hover{
+            transition: transform 0.3s ease;
+            transform: scale(1.2);
+        }
+        .butterfly a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .butterfly p{
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 30px;
+            text-decoration: none;
+        }
+        .order{
+            font-family: 'Courier New', Courier, monospace;
+            word-spacing: 5px;
+            color:  rgb(166, 188, 23);
+        }
+         .honeybee{
+            border: 2px solid black;
+            
+            display: flex;
+            text-wrap: wrap;
+              color: white;
+        }
+        .honeybee a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .honeybee img{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 30px;
+              animation: img 2s ease-in-out;
+            animation-delay: 0.5s;
+        }
+         .honeybee img:hover{
+            transition: transform 0.3s ease;
+            transform: scale(1.2);
+        }
+        .honeybee p{
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 20px;
+        }
+         .silkworm{
+            border: 2px solid black;
+         
+            display: flex;
+            text-wrap: wrap;
+              color: white;
+        }
+        .silkworm a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .silkworm img{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 30px;
+              animation: img 2s ease-in-out;
+            animation-delay: 0.5s;
+        }
+         .silkworm img:hover{
+            transition: transform 0.3s ease;
+            transform: scale(1.2);
+        }
+        .silkworm p{
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 30px;
+        }
+        .cricket{
+            border: 2px solid black;
+          
+            display: flex;
+            text-wrap: wrap;
+              color: white;
+        }
+        .cricket a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .cricket img{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 30px;
+              animation: img 2s ease-in-out;
+            animation-delay: 0.5s;
+        }
+         .cricket img:hover{
+            transition: transform 0.3s ease;
+            transform: scale(1.2);
+        }
+        .cricket p{
+            display: flex;
+            text-wrap: wrap;
+            padding-top: 30px;
+        }
+        .facts{
+       display:flex;
+       flex-wrap: wrap;
+       }
+        .box1{
+            width: 25%;
+            height: 100px;
+            box-shadow: 2px 4px 10px white;
+            background-color: rgb(166, 188, 23);
+              margin:50px;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+          
+        }
+        .box1:hover{
+            width: 50%;
+            height: 100px;
+            box-shadow: 2px 4px 10px white;
+            background-color: rgb(166, 188, 23);
+              margin:50px;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+          
+        }
+         .box2{
+            width: 25%;
+            height: 100px;
+            background-color: rgb(166, 188, 23);
+            box-shadow: 2px 4px 10px white;
+              margin:50px;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+        }
+        .box2:hover{
+            width: 50%;
+            height: 100px;
+            background-color: rgb(166, 188, 23);
+            box-shadow: 2px 4px 10px white;
+              margin:50px;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+        }
+         .box3{
+            width: 25%;
+            height: 100px;
+            background-color: rgb(166, 188, 23);
+              margin:50px;
+              box-shadow: 2px 4px 10px white;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+        }
+        .box3:hover{
+            width: 50%;
+            height: 100px;
+            background-color: rgb(166, 188, 23);
+              margin:50px;
+              box-shadow: 2px 4px 10px white;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+        }
+         .box4{
+            width: 25%;
+            height: 100px;
+            background-color: rgb(166, 188, 23);
+            box-shadow: 2px 4px 10px white;
+              margin:50px;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+        }
+        .box4:hover{
+            width: 50%;
+            height: 100px;
+            background-color: rgb(166, 188, 23);
+            box-shadow: 2px 4px 10px white;
+            margin:50px;
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(7, 6, 6);
+            padding: 20px;
+          box-shadow: 30px solid whitesmoke;
+          overflow: auto;
+          transition: all;
+          transition-duration: 2s;
+        }
+        .footer{
+            height: auto;
+            min-height: 40px;
+            background-color:rgb(166, 188, 23) ;
+            text-align: center;
+            padding: 20px;
+            
+        }
+        .footer .line{
+            padding-top: 10px;
+        font-size: 20px;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <div style="padding: 0 20px;">
+    <div class="heading">
+        <h3><span>• NATURAL HISTORY • ENTOMOLOGY • FIELD GUIDE</span></h3>
+       <h1>🦋<span style="color: white; margin: 0px;">Insecto</span><span style="color:rgb(166, 188, 23);font-family: Lucida Calligraphy; margin-left: -1px;">Pedia</span></h1><br>
+       <div class="next" style="color:white; text-align: center;">
+        A curated reference to Earth's most diverse and fascinating arthropods — from forest floors to desert skies.
+       <br><hr> </div>
+    </div><br>
+    <div class="ex">
+        <h2><a href="#ex">Explore</a></h2>
+    </div>
+    <div class="arrow">
+        <h1> ↓ </h1>
+    </div><br><br><br><br><br>
+    
+    <section id="ex">
+        <br><br>
+   <div class="stats" >
+        <div class="one" >1M+<br>
+        KNOWN SPECIES
+    <br><br><br>
+        30<br>
+        MAJOR ORDERS
+    </div><br><br>
+         <div class="k">
+            <hr>
+        </div>
+<div class="five" >80%<br>
+        OF ALL ANIMAL LIFE<br><br><br>
+        400M<br>
+        YEARS ON EARTH
+
+    </div>
+    </section> 
+    <br><br><br><br><br><br>
+    <section id="ex">
+    <div class="types">
+       <h1><span style="color: white; margin: 0px;">Common </span> <span style="color:rgb(166, 188, 23);font-family: Lucida Calligraphy;">Specimens</span></h1> <hr>
+    <br><br>
+
+       <div class="butterfly">
+        <div style="color: rgb(166, 188, 23) ; text-align: center;"><a href="butterfly.html" target="_blank"><img src="butter.jpeg" ><h1>Butterfly</h1></a></div><div><p>Delicate winged insects with scaled wings, known for their remarkable metamorphosis from caterpillar to adult and their vital role in pollination. Butterflies are vibrant, flying insects known for their delicate, scaly wings, six legs, and two antennae. They undergo a fascinating metamorphosis from caterpillars to adults, feeding primarily on flower nectar. As crucial pollinators found worldwide, they represent environmental health and are renowned for long-distance migrations, such as the Monarch.</p> 
+        <br><div class="order">🦋 ORDER • LEPIDOPTERA</div>        
+        </div>
+    </div><br>
+
+     <div class="honeybee">
+        <div style="color: rgb(166, 188, 23) ; text-align: center;"><a href="honeybee.html" target="_blank"><img src="4 Essential Garden Supplies Gardeners Need - How To Get Ready Now For Garden Season!.jpg"><h1>HoneyBee</h1></a></div><div><p>Highly social insects that live in colonies of up to 60,000. They communicate through the famous "waggle dance" to share the location of flowers.
+         They play a critical role in pollination, which supports plant biodiversity and agricultural crop yield, contributing to the sustainability of ecosystems. These highly organized insects live in colonies comprised of a single queen, thousands of female worker bees, and male drones.</p> 
+        <br><div class="order">🐝 ORDER • HYMENOPTERA</div>
+       </div>
+    </div><br>
+
+     <div class="silkworm">
+        <div style="color: rgb(166, 188, 23) ; text-align: center;"><a href="silkworm.html" target="_blank"><img src="Ebern Designs Pres Prescia Silkworm par Liufuyu - photographie sur toile tendue.jpg"><h1>Silkworm</h1></a></div><div><p>Fully domesticated for over 5,000 years, this moth larva spins a cocoon of continuous silk thread up to 900 metres long in a single strand. A silkworm is the larva or caterpillar of the domesticated silk moth, Bombyx mori, and is globally renowned for its role in sericulture, the production of silk. These voracious eaters feed exclusively on mulberry leaves for nearly a month, growing up to 10,000 times their birth weight before spinning a protective cocoon.</p>
+        <br><div class="order">🐛 ORDER • LEPIDOPTERA</div>
+        </div>
+    </div><br>
+
+     <div class="cricket">
+        <div style="color: rgb(166, 188, 23) ; text-align: center;"><a href="cricket.html" target="_blank"><img src="Crickets Chirping.jpg"><h1>Cricket</h1></a></div><div><p>Nocturnal insects famous for their chirping song, produced by rubbing their wings together — a behaviour called stridulation. Crickets are orthopteran insects closely related to grasshoppers, known primarily for the musical chirping sound (stridulation) produced by males rubbing their wings together to attract mates. These nocturnal insects are found worldwide, living in diverse habitats ranging from grassy fields and forests to dark caves and human basements</p> 
+        <br><div class="order">🦗 ORDER • ORTHOPTERA</div>        
+        </div>
+
+</div><br><br>
+<h1><span style="color: white; margin: 0px;">Fun </span><span style="color:rgb(166, 188, 23);font-family: Lucida Calligraphy;">Facts</span></h1>
+            <hr>
+        <div class="facts">
+            
+            <div class="box1">
+                    Dung beetles can pull over 1,000 times their own body weight.
+                </div>
+                <div class="box2">
+                    Cockroaches can survive up to a week without their head — they die eventually from dehydration, not blood loss.
+                </div>
+                <div class="box3">
+                    Bees communicate through dance — the “waggle dance” tells other bees the exact direction and distance to food.
+                </div>
+                <div class="box4">
+                    Butterflies taste with their feet using sensors called chemoreceptors.
+                    
+                </div>
+        </div>
+        <br><br><br>
+
+        <footer>
+            <div class="footer">
+            <div class="big"> 🦋<span style="color: white; margin: 0px;">Insecto</span><span style="color:white;font-family: Lucida Calligraphy; font-size: x-large; margin-left: -2px;">Pedia</span></div>
+            <div class="line">A reference guide to the world's most abundant animals&nbsp;&nbsp;Entomology & Natural History</div>
+        </div>
+        </footer>
+</div>
+</body>
+</html>

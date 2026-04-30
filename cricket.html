@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket • InsectoPedia</title>
+    <style>
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(cric.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        html{
+             scroll-behavior: smooth;
+        }
+         .topbar{
+             font-size: x-large;
+            align-items: center;
+            color: white;
+            height: 40px;
+            display: flex;
+            padding: 6px 10px;
+            text-align: right;
+            justify-content: space-between;
+        }
+   
+        .buttons{ 
+            text-decoration: none;
+            margin: 30px;
+            text-align: center;
+            font-size: xx-large;   
+        }
+        .topquote h1{
+            text-align: center;
+        }
+        .buttons a{ 
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            text-align: center;
+            font-size: x-large;   
+            display: inline-block;
+        }
+        .buttons a:hover{
+            transition: transform 0.3s ease;
+            transform: scale(1.3);
+        }
+        .types{
+            color: white;
+            font-size: large;
+        }
+         .images{ 
+            padding: 10px;
+            font-size: large;
+            align-items: center;
+            gap:20px;
+            justify-content: center;
+         }
+         .images img{
+            width:280px;
+            height:280px;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 4px 4px 10px rgb(166, 188, 23);
+         }
+         .images h2{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            
+         }
+    
+        .images img:hover{
+            width:280px;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            transform: scale(1.3);
+         }
+        .diet {
+             width: 80%;
+            height: 400px;
+            margin: auto;
+            font-size: 20px;
+            color: white;
+            padding: 20px;
+            word-spacing: 10px;
+           columns: 3;
+column-gap: 40px;
+hyphens: auto;
+            text-align: justify;
+         }
+         .lifecycle {
+             width: 80%;
+            height: 400px;
+            margin: auto;
+            word-spacing: 10px;
+            font-size: 20px;
+            color: white;
+            padding: 20px;
+            columns: 3;
+column-gap: 40px;
+hyphens: auto;
+            text-align: justify;
+        }
+
+       .habitat {
+        word-spacing: 10px;
+             width: 80%;
+            margin: auto;
+            font-size: 20px;
+            color: white;
+            padding: 20px;
+          columns: 3;
+          hyphens: auto;
+column-gap: 40px;
+            text-align: justify;
+         } 
+        .footer{
+            height: auto;
+            min-height: 40px;
+            background-color: rgb(24, 173, 24);
+            text-align: center;
+            padding: 20px;
+            
+        }
+        .footer .line{
+            padding-top: 10px;
+        font-size: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="topbar">
+            
+             <div class="brand" style="color: white;">
+            🦋<span style="color: white; margin: 0px; ">Insecto</span><span style="color:rgb(166, 188, 23);font-family:Lucida Calligraphy">Pedia</span>
+             </div>
+              <div class="buttons">
+            <a href="#fs">Diet & Sound</a>
+            <a href="#lc">Life cycle </a>
+            <a href="#hb">Habitat & Shelter</a>
+             </div> 
+            
+        </div>
+            </nav>   <br> 
+            <center>
+             <div class="topquote" style= "color:  rgb(24, 173, 24); font-family: lucida Calligraphy;">
+              <h1>"A cricket's chirp is the sound of the earth breathing in the dark."</h1>
+            </center>
+        </div>
+      
+    <main>
+        
+        <div class="types">
+            <section id="fs">
+            <h1><span> <b>Diet & Sound</b></span></h1>
+            <hr><br>
+             <audio id="chirp" src="cricketsound.mp3.wav" loop> </audio>
+<button onclick="
+    const a = document.getElementById('chirp');
+    if (a.paused) { a.play(); this.textContent = '🔇 Stop Chirping'; }
+    else { a.pause(); this.textContent = '🔊 Hear the Chirp'; }
+" style=" 
+    background: rgb(166,188,23);
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Courier New';
+">🔊 Hear the Chirp</button>
+    </nav>        
+    
+             <h1 style="text-align: center;">How crickets became the sound for everything</h1> 
+            </div>
+              </center>
+              <div class="diet">
+              <p>Crickets are omnivorous insects known for their distinct nocturnal chirping, which is produced by males to attract mates and establish territory. Their diet consists of a wide variety of plant and animal matter, while their sound production is heavily influenced by environmental temperature. 
+
+Diet of Crickets:
+Crickets are opportunistic omnivores, meaning they consume both plant and animal materials. Their diet includes: 
+
+Decaying Matter: They feed on decaying plants, fungi, and forest debris.
+Plants and Seeds: They eat leaves, seeds, fruits, and nectar.
+Insects: They eat other insects, including pest insects, helping to control their populations.
+Organic Matter: They often consume wet wood and organic matter in damp environments. 
+
+Sound of Crickets (Chirping):
+Mechanism: Male crickets produce sound through stridulation, which involves rubbing a scraper on one wing against ridges (a "file") on the other wing.
+Purpose: The main reasons for chirping are to attract female mates, advertise for a mate, and repel rival males. They also have specific, quieter songs for courtship and an aggressive "rivalry" call.
+Temperature Dependence: Cricket chirping speed varies with temperature; they chirp faster when it is warmer and slower in colder conditions.
+Hearing: Crickets hear with their legs, specifically using a "tympanum" located on their front legs.
+Activity: They are mainly nocturnal and are particularly active and vocal during warm, humid, or rainy nights. 
+
+Unique Behaviors:
+Raspy Crickets: Some types, like the raspy cricket, produce sounds by rubbing their hind legs against their abdomen or tapping their legs on plants, rather than wing rubbing.
+Noises and Activity: Only male crickets produce the familiar chirping sound. 
+
+</p>
+
+
+            </section>
+        </div>
+        <br><br>
+        <div class="lifecycle">
+            <section id="lc">
+                <h1><span> <b>Life Cycle</b></span></h1><hr>
+                <p>Crickets undergo incomplete metamorphosis, consisting of three main stages: egg, nymph, and adult, usually spanning 2-3 months. Females lay hundreds of eggs in moist substrate, which hatch into wingless nymphs that molt 7-10 times over 1-2 months. Adults develop wings, mate, and live for a few weeks to reproduce, often dying in fall.
+                    Key Stages of the Cricket Life Cycle:
+Egg Stage:
+Oviposition: Females use a sword-shaped organ called an ovipositor to deposit eggs into soil, sand, or decaying plant material.
+Quantity: A single female can produce 200–1,500 eggs.
+Hatching: Eggs typically hatch within 1 to 2 weeks, though many species overwinter as eggs and hatch in spring.
+Nymph Stage:
+Appearance: Nymphs look like miniature versions of adult crickets but lack wings and functional reproductive organs.
+Growth & Molting: As they grow, nymphs shed their exoskeleton (molt) 7-10 times.
+Vulnerability: After molting, the cricket is bright white and soft, making it vulnerable until the new exoskeleton hardens and darkens.
+Duration: This stage lasts roughly 1 to 2 months.
+Adult Stage:
+Development: After the final molt, adults possess fully developed wings.
+Reproduction: Males attract females by chirping (stridulation)—rubbing their wings together.
+Lifespan: Adult crickets typically live for a few weeks to a few months, with the entire life cycle lasting about 60-90 days, heavily influenced by temperature.
+                </p>
+            </section>
+        </div>
+        <br>
+        <div class="habitat">
+            <section id="hb">
+                <h1><span> <b>Habitats</b></span></h1><hr>
+                <p>
+
+<p>Crickets live in warm, moist, and dark environments globally (except in extreme cold), including grasslands, forests, caves, and homes. They prefer sheltered, warm areas near food sources, such as mulch, wood piles, and near building heaters. For captive breeding, they require a ventilated, warm bin (26–32°C) with egg crates. 
+
+Natural Habitat Characteristics
+Environment: Found in meadows, fields, marshes, beaches, and under debris.
+Shelter: They hide in dark, tight spaces like under rocks, logs, in leaf litter, or burrows.
+Conditions: Prefer high humidity and warmth, with high diversity in tropical regions.
+Behavior: Primarily nocturnal, emerging at night to feed. 
+
+Captive Cricket Habitats (How-To)
+If you are raising crickets (e.g., for pet food), you can build a habitat: 
+Container: A clear plastic tub (like from PetWave or a large storage container) with holes in the lid for ventilation.
+Vertical Space: Use egg cartons stacked vertically to increase surface area, prevent overcrowding, and reduce crushing.
+Substrate: Use soil, sand, or vermiculite at the bottom, which is crucial for egg-laying.
+Temperature: Maintain a warm environment, ideally between 79-90 °F (26-32°C), using a heating pad if necessary.
+Water/Food: Provide food (like carrots, squash, or commercial feed) and water (using sponges to avoid drowning). 
+
+Common Species Habitats
+House Crickets: Often live indoors (basements) or near human habitation, attracted to warm areas like chimneys.
+Field Crickets: Found outdoors in pastures, tall grass, and under debris.
+Mole Crickets: Specialized to live within soil, consuming roots and organic matter. </p>
+            </section>
+        </div>
+
+    </main>
+<br><br><br>
+    <footer>
+            <div class="footer">
+            <div class="big"> 🦋<span style="color: white; margin: 0px; font-size: x-large;">Insecto</span><span style="color:white;font-family: Lucida Calligraphy; font-size: x-large; margin-left: -2px;">Pedia</span></div>
+            <div class="line">A reference guide to the world's most abundant animals&nbsp;&nbsp;Entomology & Natural History</div>
+        </div>
+        </footer>
+
+</body>
+</html>

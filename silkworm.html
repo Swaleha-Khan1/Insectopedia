@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silkworm • InsectoPedia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: inherit !important;
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(sbg.jpg);
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            padding-left: 50px !important;
+            padding-right: 50px !important;
+        }
+        html{
+             scroll-behavior: smooth;
+        }
+        .topbar{
+             font-size: x-large !important;
+             padding-top: 40px;
+             margin-left: -40px;
+             margin-right: -40px;
+             padding-left: 40px !important;
+             padding-right: 40px !important;
+            align-items: center !important;
+            color: white;
+            height: 40px !important;
+            display: flex !important;
+            /* padding: 6px 10px !important; */
+            text-align: right !important;
+            justify-content: space-between !important;
+        }
+   
+        body .buttons{ 
+            text-decoration: none;
+            margin: 30px !important;
+            text-align: center !important;
+            font-size: xx-large !important;   
+        }
+        body .buttons a{ 
+            color: white ;
+            text-decoration: none;
+            margin: 20px !important;
+            text-align: center !important;
+            font-size: x-large !important;   
+            display: inline-block !important;
+        }
+        body .buttons a:hover{
+            transition: transform 0.3s ease;
+            transform: scale(1.3);
+        }
+        body .types{
+            color: white ;
+            font-size: large !important ;
+        }
+        body .images{ 
+            padding: 10px !important;
+            font-size: large !important;
+            align-items: center;
+            gap:20px ;
+            justify-content: center !important;
+         }
+        body .images img{
+            width:280px;
+            height:280px;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 4px 4px 10px rgb(166, 188, 23);
+         }
+        body .images h2{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap !important;
+            
+         }
+    
+        
+        body .fs {
+            all:revert;
+             width: 80% ;
+            margin: auto !important;
+            font-size: 20px !important;
+            color: white;
+            padding: 20px !important;
+            word-spacing: -2px;
+            columns:3 !important;
+            column-gap: 40px !important;
+            text-align: justify !important;
+         }
+        body .lifecycle {
+             width: 80%;
+            margin: auto !important;
+            font-size: 20px !important;
+            color: white;
+            word-spacing: -2px;
+            padding: 20px !important;
+            columns:3 !important;
+            column-gap: 40px !important;
+            text-align: justify !important;
+         }
+         
+        body .habitat {
+             width: 80%;
+            margin: auto !important;
+            font-size: 20px !important;
+            color: white;
+            padding: 20px !important;
+            columns:3 !important;
+            hyphens: auto;
+            word-spacing: -2px;
+            column-gap: 40px !important;
+            text-align: justify !important;
+         }
+        body .footer{
+            height: auto;
+            min-height: 40px;
+            background-color:rgb(144, 221, 144) ;
+            text-align: center;
+            padding: 20px;
+            
+        }
+        h1,h2,h3{
+            font-weight: bold;
+            margin:0 !important;
+            padding:10px 0;
+        }
+        hr{
+            margin: 5px 0 !important;
+        }
+        body .footer .line{
+            padding-top: 10px;
+        font-size: 20px;
+        }
+        #carouselExampleControls{
+            width: 50%;
+            margin: 20px auto;
+            display: block;
+        }
+        .carousel-inner img{
+            height:300px;
+            object-fit: cover;
+            width: 100%;
+            border: 2px solid white;;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="topbar">
+            
+             <div class="brand" style="color: white;">
+            🦋<span style="color: white; margin: 0px; ">Insecto</span><span style="color:rgb(166, 188, 23);font-family:Lucida Calligraphy">Pedia</span>
+             </div>
+              <div class="buttons">
+            <a href="#fs">Cocoon & Silk</a>
+            <a href="#lc">Life cycle </a>
+            <a href="#hb">Sericulture</a>
+             </div> 
+            
+        </div>
+            </nav>   <br> 
+            <center>
+             <div class="topquote" style="color: rgb(144, 221, 144)  ; font-family: lucida Calligraphy; margin: 30px;">
+              <h2> "The silkworm dies only when its silk is exhausted."</h2>
+            </center>
+        </div>
+        <div class="para">
+            <p> </p>
+        </div>
+        
+    </nav>        
+    <main>
+        <div class="types">
+            <section id="fs">
+            <h1><span> <b>Cocoon & Silk</b></span></h1>
+            <hr> <center><br>
+            <!-- <div class="images" style="width: 50%; min-height: 50px; height: auto;"> -->
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="silk.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="cocoon.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="silk3.webp" class="d-block w-100" alt="...">
+    </div>
+     <div class="carousel-item">
+      <img src="cocoon2.webp" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+              </div>
+              </center>
+              <div class="fs">
+              <p>Silk is a natural protein fiber produced by silkworms (most commonly Bombyx mori) to create a protective cocoon. Over 2–3 days, a single larva spins a continuous filament up to 1,000 meters long, consisting of fibroin (structure) and sericin (glue). Farmers harvest cocoons, killing the pupae inside to prevent breaking the fiber, then reel the silk. 
+
+Key Aspects of Cocoons and Silk Production
+Production Process (Sericulture): Larvae feed on mulberry leaves, then spin a white-yellow cocoon.
+The Transformation: The larva transforms into a pupa inside the cocoon, providing a protected, warm environment for this phase.
+Reeling & Processing: Cocoons are placed in hot water/steam to soften the sericin (degumming) and allow the single, unbroken filament to be unraveled, or reeled.
+Harvesting Methods: Generally, pupae are killed during processing to keep the filament intact. However, in "Ahimsa" or peace silk, cocoons are used after the moth has naturally emerged.
+Composition: Silk is a strong natural fiber with a protein composition of 70-80% fibroin and 20-30% sericin.
+Uses: Beyond luxury textiles, silk is used in medical applications to stitch wounds and repair tendons due to its strength. 
+
+</p>
+        </div>
+
+            </section>
+        </div>
+        <br><br>
+        <div class="lifecycle">
+            <section id="lc">
+                <h1><span> <b>Life Cycle</b></span></h1><hr>
+                <p>The life cycle of a silkworm (Bombyx mori) consists of four main stages—egg, larva (silkworm), pupa (cocoon), and adult (moth)—typically completed in 45–55 days. Larvae hatch from eggs and feed on mulberry leaves, then spin a silk cocoon. The pupa transforms into a moth inside the cocoon. 
+                    Key Stages in the Life Cycle:
+1. Egg (10–14 days): A female moth lays up to 350-500 eggs, often on Mulberry leaves. These eggs remain dormant until hatching in warm conditions.
+2. Larva/Silkworm (20–30 days): The hatched hairy caterpillars consume large quantities of Mulberry leaves. They grow rapidly and molt four times over roughly 27 days.
+3. Cocoon (10–14 days): The larva spins a protective cocoon, made from a single, continuous silk thread that can be up to 900 meters long, using a protein secreted from its salivary glands.
+4. Pupa: Inside the cocoon, the larva matures into a pupa, transforming from a yellow/white creature into a brown pupa.
+5. Adult/Moth (3–4 days): The adult moth emerges from the cocoon using specialized enzymes, mates, and the female lays eggs, starting the cycle again. The moths are flightless and do not eat </p>
+            </section>
+        </div>
+        <br><br>
+        <div class="habitat">
+            <section id="hb">
+                <h1><span> <b>Sericulture</b></span></h1><hr>
+                <p>
+Sericulture, or silk farming, is the agro-based industry of rearing silkworms—primarily Bombyx mori—for raw silk production, involving mulberry cultivation, caterpillar rearing, and reeling cocoons to extract silk fibers. It is a highly employment-oriented, labor-intensive, and eco-friendly rural enterprise, offering high returns on low investment. 
+Central Silk Board
+Central Silk Board
+ +4
+Key Aspects of Sericulture
+The Process: Involves cultivating mulberry trees, rearing silkworms (feeding them leaves for ~4-6 weeks), harvesting cocoons, and reeling, which is the process of unwinding the silk filament from the cocoons.
+Types of Silk: The four main types of commercial silk produced are Mulberry, Eri, Tasar, and Muga.
+Major Producers: China is the world’s leading silk producer, followed by India.
+Economic Impact: It provides income for millions in rural India, with key production areas in Karnataka, Andhra Pradesh, Tamil Nadu, and Jammu & Kashmir.
+Life Cycle: Silkworms go through four stages: egg, larva (caterpillar), pupa (inside the cocoon), and moth, with the entire life cycle lasting about 50 days. 
+</p>
+            </section>
+        </div>
+
+    </main>
+<br><br><br>
+    <footer>
+            <div class="footer">
+            <div class="big"> 🦋<span style="color: white; margin: 0px; font-size: x-large;">Insecto</span><span style="color:white;font-family: Lucida Calligraphy; font-size: x-large; margin-left: -2px;">Pedia</span></div>
+            <div class="line">A reference guide to the world's most abundant animals&nbsp;&nbsp;Entomology & Natural History</div>
+        </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
