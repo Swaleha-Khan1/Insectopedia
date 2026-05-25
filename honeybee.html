@@ -4,301 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honeybee • InsectoPedia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-    
-        body{
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(honeybg.png);
+        :root {
+            --accent: #eec95c;
+            --accent-light: #f5df8a;
+            --bg-overlay: rgba(0,0,0,0.55);
+        }
+        html { scroll-behavior: smooth; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url(honeybg.png);
             background-repeat: no-repeat;
             background-size: cover;
-            padding-left: 40px;
-            padding-right: 40px;
+            background-attachment: fixed;
+            color: #f0ede4;
+            font-family: 'Lora', Georgia, serif;
+            min-height: 100vh;
         }
-        
-        html{
-             scroll-behavior: smooth;
+
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(238,201,92,0.2);
+            padding: 0 48px; height: 60px;
+            display: flex; align-items: center; justify-content: space-between;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.1s;
         }
-         .topbar{
-             font-size: x-large;
-            align-items: center;
-            color: white;
-            height: 40px;
-            display: flex;
-            padding: 6px 10px;
-            text-align: right;
-            justify-content: space-between;
-              opacity: 0;
-            animation: home 1s ease forwards;
-            animation-delay: 0.1s;
+        @keyframes fadeup {
+            from { opacity:0; transform: translateY(16px); }
+            to   { opacity:1; transform: translateY(0); }
         }
-              @keyframes home{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
+        .brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #fff; }
+        .brand em { color: var(--accent); font-style: italic; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent-light); }
+
+        .page-hero { padding: 80px 60px 60px; opacity: 0; animation: fadeup 0.8s ease forwards 0.4s; }
+        .page-hero .quote { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2.2rem); font-style: italic; color: var(--accent-light); max-width: 700px; line-height: 1.4; margin-bottom: 12px; }
+        .page-hero .quote-author { font-size: 0.65rem; letter-spacing: 0.18em; color: rgba(255,255,255,0.4); }
+
+        .content-section { padding: 60px; opacity: 0; animation: fadeup 0.8s ease forwards 0.7s; }
+        .section-label { font-size: 0.62rem; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 6px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; color: #fff; margin-bottom: 10px; }
+        .divider { width: 40px; height: 1px; background: var(--accent); margin-bottom: 36px; }
+
+        /* Image grid for colony pics */
+        .hive-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 0;
         }
-        .topquote{
-             opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 0.5s;
-        }
-             @keyframes second{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-   
-        .buttons{ 
-            text-decoration: none;
-            margin: 30px;
-            text-align: center;
-            font-size: xx-large;   
-        }
-        .buttons a{ 
-            color: white;
-            text-decoration: none;
-            margin: 20px;
-            text-align: center;
-            font-size: x-large;   
-            display: inline-block;
-        }
-        .buttons a:hover{
-            transition: transform 0.3s ease;
-            transform: scale(1.3);
-        }
-        .types{
-            color: white;
-            font-size: large;
-            margin: 30px;
-             opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 1s;
-        }
-             @keyframes type{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-         .images{ 
-            padding: 10px;
-            font-size: large;
-            align-items: center;
-            gap:20px;
-            justify-content: center;
-         }
-         .images img{
-            width:280px;
-            height:280px;
+        .hive-images img {
+            width: 100%; height: 220px;
             object-fit: cover;
-            border: 2px solid white;
-            box-shadow: 4px 4px 10px rgb(166, 188, 23);
-         }
-         .images h2{
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-                     opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 1.5s;
-         }
-        @keyframes img{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
+            border: 1px solid rgba(238,201,92,0.25);
+            display: block;
+            transition: transform 0.3s;
         }
-         
-    
-        .images img:hover{
-            width:280px;
-            height: 280px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            transform: scale(1.3);
-         }
-        .colony {
-             width: 80%;
-            height: 400px;
-            margin: auto;
-            font-size: 20px;
-            color: white;
-            padding: 20px;
-        columns: 3;
-column-gap: 40px;
+        .hive-images img:hover { transform: scale(1.03); }
 
-hyphens: auto;
-            text-align: justify;
-         }
-         .lifecycle {
-             width: 80%;
-            height: 400px;
-            margin: auto;
-            font-size: 20px;
-            color: white;
-            padding: 20px;
-          columns: 3;
-column-gap: 40px;
+        .prose-columns { column-count: 3; column-gap: 40px; font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.85; text-align: justify; hyphens: auto; }
+        @media (max-width: 900px) { .prose-columns { column-count: 2; } .hive-images { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 560px) { .prose-columns { column-count: 1; } .hive-images { grid-template-columns: 1fr; } }
 
-            text-align: justify;
-            hyphens: auto;
-         }
-         
-         .habitat {
-             width: 80%;
-            margin: auto;
-            font-size: 20px;
-            color: white;
-            padding: 20px;
-           columns: 3;
-column-gap: 40px;
+        footer { background: rgba(0,0,0,0.6); border-top: 1px solid rgba(238,201,92,0.2); text-align: center; padding: 28px; margin-top: 60px; }
+        .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--accent); margin-bottom: 6px; }
+        .footer-sub { font-size: 0.65rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); }
 
-            text-align: justify;
-            hyphens: auto;
-         }
-        .footer{
-            height: auto;
-            min-height: 40px;
-            background-color: rgb(238, 201, 92) ;
-            text-align: center;
-            padding: 20px;
-            
-        }
-        .footer .line{
-            padding-top: 10px;
-        font-size: 20px;
-        }
+        @media (max-width: 768px) { nav { padding: 0 24px; } .page-hero, .content-section { padding: 40px 24px; } }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="topbar">
-            
-             <div class="brand" style="color: white;">
-            🦋<span style="color: white; margin: 0px; ">Insecto</span><span style="color:rgb(166, 188, 23);font-family:Lucida Calligraphy">Pedia</span>
-             </div>
-              <div class="buttons">
-            <a href="#fs">Colony & Hive</a>
-            <a href="#lc">Life cycle </a>
-            <a href="#hb">Habitats</a>
-             </div> 
-            
+        <div class="brand">🦋 Insecto<em>Pedia</em></div>
+        <div class="nav-links">
+            <a href="#colony">Colony & Hive</a>
+            <a href="#lifecycle">Life Cycle</a>
+            <a href="#habitat">Habitats</a>
         </div>
-            </nav>   <br> 
-            <center>
-             <div class="topquote" style="color: rgb(238, 201, 92) ; font-family: lucida Calligraphy;">
-              <h1>  "The hum of bees is the voice of the garden."</h1>
-            </center>
-        </div>
-        <div class="para">
-            <p></p>
-        </div>
-        
-    </nav>        
-    <main>
-        <div class="types">
-            <section id="fs">
-            <h1><span> <b>Colony & Hive</b></span></h1>
-            <hr>
-            <div class="images">
-              <h2><span><img src="next.jpg"><br></span>
-                <span><img src="images.jpg"><br></span> 
-              <span><img src="Honey-Bee-Colonies.png"><br></span> </h2>
-              </div>
-              <div class="colony">
-              <p>A honey bee colony is a highly organized social unit consisting of one queen, thousands of female worker bees, and several hundred male drones, totaling up to 80,000 individuals. They live together in a hive (a natural cavity or man-made box), where they raise brood and store food in beeswax combs. 
+    </nav>
 
-• The Honey Bee Colony (The Inhabitants)
-A colony is a "superorganism," where individual bees cannot survive alone. 
-Queen (1): The only fertile female, responsible for laying up to 2,000 eggs per day.
-Worker Bees (Thousands): Sterile females that perform all labor, including cleaning, feeding larvae, producing wax, guarding, and foraging.
-Drones (Hundreds): Male bees whose sole purpose is to mate with a new queen.
-Brood: Eggs, larvae, and pupae developing into adult bees. 
+    <div class="page-hero">
+        <p class="quote">"The hum of bees is the voice of the garden."</p>
+        <span class="quote-author">— Elizabeth Lawrence</span>
+    </div>
 
-• The Beehive (The Home)
-A hive is the physical structure where the colony resides. 
-Components: Modern hives contain removable frames, while older types or wild nests are fixed-frame.
-Honeycomb: Beeswax structures constructed within the hive with hexagonal cells for honey storage, pollen storage, and rearing brood.
-Structure: Inside, the colony maintains a, consistent climate, cooling the nest during hot weather through water collection and ventilation.
-Difference: A colony is the living group of bees, while a hive is the structure they live in. 
-
-Colony Life
-Communication: Bees communicate via pheromones and "dances" to locate food and maintain social order.</p>
-        </div>
-
-            </section>
-        </div>
-        <br><br>
-        <div class="lifecycle">
-            <section id="lc">
-                <h1><span> <b>Life Cycle</b></span></h1><hr>
-                <p>Honey Bee Life Cycle
-
-A colony contains one queen, seasonal drone bees (males), and tens of thousands of female worker bees.
-
-Key stages and behaviors:
-
-1. ggs & larvae — Eggs are laid in wax honeycomb cells. Drones develop from unfertilised eggs (haploid); females from fertilised eggs (diploid). Larvae are fed royal jelly, then honey and pollen — except one larva fed solely on royal jelly, which becomes the next queen.
-
-2. Worker roles — Young workers ("nurse bees") clean the hive and feed larvae. As they age, they shift to building comb, receiving nectar, guarding, and eventually foraging outside.
-
-3. The waggle dance — Workers communicate food source locations through a "dancing" pattern. Resources very close to the hive trigger a simpler "round dance."
-
-4. Mating — Virgin queens fly out to mate with multiple drones from other colonies. The drones die after mating.
-
-5. Swarming — New colonies form not through a lone queen but via *swarms* — a mated queen plus a large group of workers. They move to a pre-scouted nest site, build new comb, and raise a fresh brood.</p>
-            </section>
+    <!-- COLONY & HIVE -->
+    <div class="content-section" id="colony">
+        <div class="section-label">01 — SOCIAL STRUCTURE</div>
+        <h2 class="section-title">Colony & Hive</h2>
+        <div class="divider"></div>
+        <div class="hive-images">
+            <img src="next.jpg" alt="Bee colony">
+            <img src="images.jpg" alt="Hive interior">
+            <img src="Honey-Bee-Colonies.png" alt="Bee colonies">
         </div>
         <br>
-        <div class="habitat">
-            <section id="hb">
-                <h1><span> <b>Habitats</b></span></h1><hr>
-                <p>
+        <div class="prose-columns">
+            A honey bee colony is a highly organized social unit consisting of one queen, thousands of female worker bees, and several hundred male drones, totaling up to 80,000 individuals. They live together in a hive — a natural cavity or man-made box — where they raise brood and store food in beeswax combs.
 
-Honey bees are remarkably adaptable insects found across nearly every continent except Antarctica. Their habitat choices reflect both their biological needs and their highly organized social structure.
+            The colony is often called a "superorganism," where individual bees cannot survive alone. The Queen (one per colony) is the only fertile female, responsible for laying up to 2,000 eggs per day. Worker Bees (thousands) are sterile females performing all labor: cleaning, feeding larvae, producing wax, guarding, and foraging. Drones (hundreds) are male bees whose sole purpose is to mate with a new queen. They die after mating.
 
-Natural Habitats:
-
-In the wild, honey bees seek out sheltered, enclosed spaces that offer protection from weather and predators. Common nesting sites include hollow tree trunks, rock crevices, cliff faces, and underground cavities. Some species, like the giant honey bee, prefer building exposed open-air combs on large tree branches or cliff overhangs.
-Geographical Distribution:
-
-Honey bees are native to Europe, Africa, and Asia, but have been introduced to the Americas and Australia through human activity. They thrive in tropical and subtropical forests rich in flowering plants, temperate woodlands and meadows, arid scrublands, and even mountainous regions at high altitudes, having adapted to a surprisingly wide range of climates.
-What Makes a Good Habitat:
-
-A suitable habitat generally offers abundant flowering plants for nectar and pollen, a reliable water source, shelter from wind and rain, and open foraging land within a 2 to 3 km radius of the hive. Bees are highly selective about nesting locations and will scout extensively before committing to a site.
-Threats to Honey Bee Habitats:
-
-Honey bee habitats are increasingly under pressure from deforestation, urbanization, pesticide use, and climate change. These factors reduce nesting sites, limit food availability, and disrupt the seasonal flowering patterns that bees depend on. Protecting green spaces and planting wildflowers are among the simplest and most effective ways to support healthy bee habitats. </p>
-            </section>
+            A hive is the physical structure where the colony resides. Modern hives contain removable frames, while older types or wild nests are fixed-frame. Inside, honeycomb — beeswax structures with hexagonal cells — store honey, pollen, and developing brood. The colony maintains a consistent internal climate, cooling the nest in hot weather through water collection and active ventilation. Bees communicate via pheromones and dances to locate food and maintain social order.
         </div>
+    </div>
 
-    </main>
-<br><br><br>
+    <!-- LIFE CYCLE -->
+    <div class="content-section" id="lifecycle">
+        <div class="section-label">02 — BIOLOGY</div>
+        <h2 class="section-title">Life Cycle</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            A colony contains one queen, seasonal drone bees (males), and tens of thousands of female worker bees. Eggs are laid in wax honeycomb cells. Drones develop from unfertilised eggs (haploid); females from fertilised eggs (diploid). Larvae are fed royal jelly, then honey and pollen — except one larva fed solely on royal jelly, which becomes the next queen.
+
+            Young workers ("nurse bees") clean the hive and feed larvae. As they age, they shift to building comb, receiving nectar, guarding, and eventually foraging outside. Workers communicate food source locations through a "waggle dance" — a figure-eight pattern whose angle and duration encode direction and distance to the food. Resources very close to the hive trigger a simpler "round dance."
+
+            Virgin queens fly out to mate with multiple drones from other colonies. New colonies form not through a lone queen but via swarms: a mated queen plus a large group of workers move to a pre-scouted nest site, build new comb, and raise a fresh brood. This swarming behavior is the primary means of colony reproduction and can travel surprisingly long distances before settling.
+        </div>
+    </div>
+
+    <!-- HABITATS -->
+    <div class="content-section" id="habitat">
+        <div class="section-label">03 — ECOLOGY</div>
+        <h2 class="section-title">Habitats</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            Honey bees are remarkably adaptable insects found across nearly every continent except Antarctica. In the wild, they seek out sheltered, enclosed spaces that offer protection from weather and predators. Common nesting sites include hollow tree trunks, rock crevices, cliff faces, and underground cavities. Some species prefer building exposed open-air combs on large tree branches or cliff overhangs.
+
+            Honey bees are native to Europe, Africa, and Asia, but have been introduced to the Americas and Australia through human activity. They thrive in tropical and subtropical forests, temperate woodlands and meadows, arid scrublands, and even mountainous regions at high altitude. A suitable habitat offers abundant flowering plants for nectar and pollen, a reliable water source, shelter from wind and rain, and open foraging land within a 2 to 3 km radius of the hive.
+
+            Honey bee habitats are increasingly under pressure from deforestation, urbanisation, pesticide use, and climate change. These factors reduce nesting sites, limit food availability, and disrupt the seasonal flowering patterns bees depend on. Protecting green spaces and planting wildflowers are among the simplest and most effective ways to support healthy bee populations.
+        </div>
+    </div>
+
     <footer>
-            <div class="footer">
-            <div class="big"> 🦋<span style="color: white; margin: 0px; font-size: x-large;">Insecto</span><span style="color:white;font-family: Lucida Calligraphy; font-size: x-large; margin-left: -2px;">Pedia</span></div>
-            <div class="line">A reference guide to the world's most abundant animals&nbsp;&nbsp;Entomology & Natural History</div>
-        </div>
-        </footer>
+        <div class="footer-brand">🦋 InsectoPedia</div>
+        <div class="footer-sub">A REFERENCE GUIDE TO THE WORLD'S MOST ABUNDANT ANIMALS · ENTOMOLOGY & NATURAL HISTORY</div>
+    </footer>
 
 </body>
 </html>

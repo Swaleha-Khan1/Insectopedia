@@ -4,292 +4,240 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket • InsectoPedia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        body{
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(cric.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding-left: 40px;
-            padding-right: 40px;
-        }
-        html{
-             scroll-behavior: smooth;
-        }
-         .topbar{
-             font-size: x-large;
-            align-items: center;
-            color: white;
-            height: 40px;
-            display: flex;
-            padding: 6px 10px;
-            text-align: right;
-            justify-content: space-between;
-             opacity: 0;
-            animation: home 1s ease forwards;
-            animation-delay: 0.1s;
-        }
-           @keyframes home{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-   .topquote{
-     opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 0.5s;
-   }
-    @keyframes second{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-        .buttons{ 
-            text-decoration: none;
-            margin: 30px;
-            text-align: center;
-            font-size: xx-large;   
-        }
-        .topquote h1{
-            text-align: center;
-        }
-        .buttons a{ 
-            color: white;
-            text-decoration: none;
-            margin: 20px;
-            text-align: center;
-            font-size: x-large;   
-            display: inline-block;
-        }
-        .buttons a:hover{
-            transition: transform 0.3s ease;
-            transform: scale(1.3);
-        }
-        .types{
-            color: white;
-            font-size: large;
-                opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 1s;
-        }
-         @keyframes type{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-        
-         
-        .diet {
-             width: 80%;
-            height: 400px;
-            margin: auto;
-            font-size: 20px;
-            color: white;
-            padding: 20px;
-            word-spacing: 10px;
-           columns: 3;
-                opacity: 0;
-            animation: second 1.2s ease forwards;
-            animation-delay: 1.2s;
-column-gap: 40px;
-hyphens: auto;
-            text-align: justify;
-         }
-            @keyframes diet{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-         .lifecycle {
-             width: 80%;
-            height: 400px;
-            margin: auto;
-            word-spacing: 10px;
-            font-size: 20px;
-            color: white;
-            padding: 20px;
-            columns: 3;
-column-gap: 40px;
-hyphens: auto;
-            text-align: justify;
+        :root {
+            --accent: #a6bc17;
+            --accent-light: #c8dc3a;
+            --accent-dim: rgba(166,188,23,0.18);
+            --bg-overlay: rgba(0,0,0,0.55);
         }
 
-       .habitat {
-        word-spacing: 10px;
-             width: 80%;
-            margin: auto;
-            font-size: 20px;
-            color: white;
-            padding: 20px;
-          columns: 3;
-          hyphens: auto;
-column-gap: 40px;
+        html { scroll-behavior: smooth; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url(cric.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #f0ede4;
+            font-family: 'Lora', Georgia, serif;
+            min-height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-dim);
+            padding: 0 48px; height: 60px;
+            display: flex; align-items: center; justify-content: space-between;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.1s;
+        }
+        @keyframes fadeup {
+            from { opacity:0; transform: translateY(16px); }
+            to   { opacity:1; transform: translateY(0); }
+        }
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; color: #fff;
+        }
+        .brand em { color: var(--accent); font-style: italic; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent-light); }
+
+        /* ── HERO QUOTE ── */
+        .page-hero {
+            padding: 80px 60px 60px;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.4s;
+        }
+        .page-hero .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-style: italic;
+            color: var(--accent-light);
+            max-width: 700px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .page-hero .quote-author {
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ── CONTENT SECTIONS ── */
+        .content-section {
+            padding: 60px;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.7s;
+        }
+        .section-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .divider {
+            width: 40px; height: 1px;
+            background: var(--accent);
+            margin-bottom: 36px;
+        }
+
+        /* ── CHIRP BUTTON ── */
+        .chirp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent-dim);
+            padding: 12px 28px;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 0.88rem;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            margin-bottom: 36px;
+            transition: background 0.25s, color 0.25s, border-color 0.25s;
+        }
+        .chirp-btn:hover {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+
+        /* ── PROSE ── */
+        .prose-columns {
+            column-count: 3;
+            column-gap: 40px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.9;
             text-align: justify;
-         } 
-        .footer{
-            height: auto;
-            min-height: 40px;
-            background-color: rgb(24, 173, 24);
+            hyphens: auto;
+        }
+        @media (max-width: 900px) { .prose-columns { column-count: 2; } }
+        @media (max-width: 560px) { .prose-columns { column-count: 1; } }
+
+        /* ── FOOTER ── */
+        footer {
+            background: rgba(0,0,0,0.6);
+            border-top: 1px solid var(--accent-dim);
             text-align: center;
-            padding: 20px;
-            
+            padding: 28px;
+            margin-top: 60px;
         }
-        .footer .line{
-            padding-top: 10px;
-        font-size: 20px;
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 6px;
         }
-    
+        .footer-sub {
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 24px; }
+            .page-hero, .content-section { padding: 40px 24px; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="topbar">
-            
-             <div class="brand" style="color: white;">
-            🦋<span style="color: white; margin: 0px; ">Insecto</span><span style="color:rgb(166, 188, 23);font-family:Lucida Calligraphy">Pedia</span>
-             </div>
-              <div class="buttons">
-            <a href="#fs">Diet & Sound</a>
-            <a href="#lc">Life cycle </a>
-            <a href="#hb">Habitat & Shelter</a>
-             </div> 
-            
+        <div class="brand">🦋 Insecto<em>Pedia</em></div>
+        <div class="nav-links">
+            <a href="#diet">Diet & Sound</a>
+            <a href="#lifecycle">Life Cycle</a>
+            <a href="#habitat">Habitat</a>
         </div>
-            </nav>   <br> 
-            <center>
-             <div class="topquote" style= "color:  rgb(24, 173, 24); font-family: lucida Calligraphy;">
-              <h1>"A cricket's chirp is the sound of the earth breathing in the dark."</h1>
-            </center>
+    </nav>
+
+    <div class="page-hero">
+        <p class="quote">"A cricket's chirp is the sound of the earth breathing in the dark."</p>
+        <span class="quote-author">— Anonymous</span>
+    </div>
+
+    <!-- DIET & SOUND -->
+    <div class="content-section" id="diet">
+        <div class="section-label">01 — Behaviour</div>
+        <h2 class="section-title">Diet & Sound</h2>
+        <div class="divider"></div>
+
+        <audio id="chirp" src="cricketsound.mp3.wav" loop></audio>
+        <button class="chirp-btn" onclick="
+            const a = document.getElementById('chirp');
+            if (a.paused) { a.play(); this.textContent = '🔇 Stop Chirping'; }
+            else { a.pause(); this.textContent = '🔊 Hear the Chirp'; }
+        ">🔊 Hear the Chirp</button>
+
+        <div class="prose-columns">
+            Crickets are omnivorous insects known for their distinct nocturnal chirping, produced by males to attract mates and establish territory. Their diet consists of a wide variety of plant and animal matter, while their sound production is heavily influenced by environmental temperature.
+
+            As opportunistic omnivores, crickets consume both plant and animal materials. They feed on decaying plants, fungi, and forest debris; eat leaves, seeds, fruits, and nectar; and even prey on other insects — including pest species — helping to control their populations. In damp environments they also consume wet wood and organic matter.
+
+            Male crickets produce sound through stridulation — rubbing a scraper on one wing against ridges, called a "file", on the other wing. The primary purpose is to attract female mates and repel rival males, with distinct quieter songs used for close-range courtship. Notably, chirping speed varies directly with temperature: crickets chirp faster in warmth and slow down in the cold, a relationship so reliable it has been used as an informal thermometer.
         </div>
-      
-    <main>
-        
-        <div class="types">
-            <section id="fs">
-            <h1><span> <b>Diet & Sound</b></span></h1>
-            <hr><br>
-             <audio id="chirp" src="cricketsound.mp3.wav" loop> </audio>
-<button onclick="
-    const a = document.getElementById('chirp');
-    if (a.paused) { a.play(); this.textContent = '🔇 Stop Chirping'; }
-    else { a.pause(); this.textContent = '🔊 Hear the Chirp'; }
-" style=" 
-    background: rgb(166,188,23);
-    color: black;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Courier New';
-">🔊 Hear the Chirp</button>
-    </nav>        
-    
-             <h1 style="text-align: center;">How crickets became the sound for everything</h1> 
-            </div>
-              </center>
-              <div class="diet">
-              <p>Crickets are omnivorous insects known for their distinct nocturnal chirping, which is produced by males to attract mates and establish territory. Their diet consists of a wide variety of plant and animal matter, while their sound production is heavily influenced by environmental temperature. 
+    </div>
 
-Diet of Crickets:
-Crickets are opportunistic omnivores, meaning they consume both plant and animal materials. Their diet includes: 
+    <!-- LIFE CYCLE -->
+    <div class="content-section" id="lifecycle">
+        <div class="section-label">02 — Biology</div>
+        <h2 class="section-title">Life Cycle</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            Crickets undergo incomplete metamorphosis, passing through three main stages — egg, nymph, and adult — with the full cycle usually spanning 2–3 months. Unlike butterflies or silkworms, there is no pupal stage; nymphs hatch looking like miniature adults and gradually develop into their final form through a series of moults.
 
-Decaying Matter: They feed on decaying plants, fungi, and forest debris.
-Plants and Seeds: They eat leaves, seeds, fruits, and nectar.
-Insects: They eat other insects, including pest insects, helping to control their populations.
-Organic Matter: They often consume wet wood and organic matter in damp environments. 
+            The egg stage begins when females use a sword-shaped organ called an ovipositor to deposit eggs into soil, sand, or decaying plant material. A single female can produce 200–1,500 eggs. Eggs typically hatch within 1–2 weeks, though many species overwinter as eggs and hatch in spring. Nymphs emerge wingless and lacking functional reproductive organs, growing and moulting 7–10 times over roughly 1–2 months. After each moult the cricket is initially bright white and soft, making it vulnerable until the new exoskeleton hardens and darkens.
 
-Sound of Crickets (Chirping):
-Mechanism: Male crickets produce sound through stridulation, which involves rubbing a scraper on one wing against ridges (a "file") on the other wing.
-Purpose: The main reasons for chirping are to attract female mates, advertise for a mate, and repel rival males. They also have specific, quieter songs for courtship and an aggressive "rivalry" call.
-Temperature Dependence: Cricket chirping speed varies with temperature; they chirp faster when it is warmer and slower in colder conditions.
- 
-
-
-</p>
-
-
-            </section>
+            After the final moult, adults possess fully developed wings. They mate, and females begin laying eggs to restart the cycle. Most adult crickets live for only a few weeks, with many species dying in autumn as temperatures drop. Their brief adult lives are focused almost entirely on reproduction, ensuring the next generation is in place before winter arrives.
         </div>
-        <br><br>
-        <div class="lifecycle">
-            <section id="lc">
-                <h1><span> <b>Life Cycle</b></span></h1><hr>
-                <p>Crickets undergo incomplete metamorphosis, consisting of three main stages: egg, nymph, and adult, usually spanning 2-3 months. Females lay hundreds of eggs in moist substrate, which hatch into wingless nymphs that molt 7-10 times over 1-2 months. Adults develop wings, mate, and live for a few weeks to reproduce, often dying in fall.
-                    Key Stages of the Cricket Life Cycle:
-Egg Stage:
-Oviposition: Females use a sword-shaped organ called an ovipositor to deposit eggs into soil, sand, or decaying plant material.
-Quantity: A single female can produce 200–1,500 eggs.
-Hatching: Eggs typically hatch within 1 to 2 weeks, though many species overwinter as eggs and hatch in spring.
-Nymph Stage:
-Appearance: Nymphs look like miniature versions of adult crickets but lack wings and functional reproductive organs.
-Growth & Molting: As they grow, nymphs shed their exoskeleton (molt) 7-10 times.
-Vulnerability: After molting, the cricket is bright white and soft, making it vulnerable until the new exoskeleton hardens and darkens.
-Duration: This stage lasts roughly 1 to 2 months.
-Adult Stage:
-Development: After the final molt, adults possess fully developed wings.
+    </div>
 
-</p>
-                </p>
-            </section>
+    <!-- HABITAT -->
+    <div class="content-section" id="habitat">
+        <div class="section-label">03 — Ecology</div>
+        <h2 class="section-title">Habitat & Shelter</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            Crickets are found across the globe in warm, moist, and dark environments — from tropical rainforests and open grasslands to caves, beaches, and human homes. They are absent only from the most extreme cold regions. As primarily nocturnal insects, they spend the day sheltering in tight, dark spaces and emerge at night to feed and call.
+
+            In natural settings, crickets hide under rocks, logs, leaf litter, or in self-dug burrows. They prefer high humidity and warmth, which is reflected in the exceptional diversity of species found in tropical regions. Meadows, fields, marshes, and forest floors all support healthy cricket populations, provided food and shelter are available nearby.
+
+            Different species have adapted to distinct niches. House crickets frequently shelter indoors in basements and wall cavities, drawn to the warmth of chimneys and heating systems. Field crickets favour open pastures and tall grass. Mole crickets are highly specialised, living almost entirely within soil where they consume roots and organic matter using powerful, shovel-like forelegs. This ecological diversity makes crickets one of the most widespread and adaptable insect groups on Earth.
         </div>
-        <br>
-        <div class="habitat">
-            <section id="hb">
-                <h1><span> <b>Habitats</b></span></h1><hr>
-                <p>
+    </div>
 
-<p>Crickets live in warm, moist, and dark environments globally (except in extreme cold), including grasslands, forests, caves, and homes. They prefer sheltered, warm areas near food sources, such as mulch, wood piles, and near building heaters. For captive breeding, they require a ventilated, warm bin (26–32°C) with egg crates. 
-
-Natural Habitat Characteristics
-Environment: Found in meadows, fields, marshes, beaches, and under debris.
-Shelter: They hide in dark, tight spaces like under rocks, logs, in leaf litter, or burrows.
-Conditions: Prefer high humidity and warmth, with high diversity in tropical regions.
-Behavior: Primarily nocturnal, emerging at night to feed. 
-
-Captive Cricket Habitats (How-To)
-If you are raising crickets (e.g., for pet food), you can build a habitat: 
-Container: A clear plastic tub (like from PetWave or a large storage container) with holes in the lid for ventilation.
-Vertical Space: Use egg cartons stacked vertically to increase surface area, prevent overcrowding, and reduce crushing.
-Substrate: Use soil, sand, or vermiculite at the bottom, which is crucial for egg-laying.
-Temperature: Maintain a warm environment, ideally between 79-90 °F (26-32°C), using a heating pad if necessary.
-Water/Food: Provide food (like carrots, squash, or commercial feed) and water (using sponges to avoid drowning). 
-
-Common Species Habitats
-House Crickets: Often live indoors (basements) or near human habitation, attracted to warm areas like chimneys.
-Field Crickets: Found outdoors in pastures, tall grass, and under debris.
-Mole Crickets: Specialized to live within soil, consuming roots and organic matter. </p>
-            </section>
-        </div>
-
-    </main>
-<br><br><br>
     <footer>
-            <div class="footer">
-            <div class="big"> 🦋<span style="color: white; margin: 0px; font-size: x-large;">Insecto</span><span style="color:white;font-family: Lucida Calligraphy; font-size: x-large; margin-left: -2px;">Pedia</span></div>
-            <div class="line">A reference guide to the world's most abundant animals&nbsp;&nbsp;Entomology & Natural History</div>
-        </div>
-        </footer>
+        <div class="footer-brand">🦋 InsectoPedia</div>
+        <div class="footer-sub">A reference guide to the world's most abundant animals · Entomology & Natural History</div>
+    </footer>
 
 </body>
 </html>

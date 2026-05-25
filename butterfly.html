@@ -4,306 +4,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Butterfly • InsectoPedia</title>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        body{
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(butterflybg.jpg);
+        :root {
+            --accent: #a6bc17;
+            --accent-light: #c8dc3a;
+            --bg-overlay: rgba(0,0,0,0.55);
+        }
+        /* ── shared inner-page styles ── */
+        html { scroll-behavior: smooth; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url(butterflybg.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-            padding-left: 40px;
-            padding-right: 40px;
+            background-attachment: fixed;
+            color: #f0ede4;
+            font-family: 'Lora', Georgia, serif;
+            min-height: 100vh;
         }
-        html{
-             scroll-behavior: smooth;
-        }
-         .topbar{
-             font-size: x-large;
-            align-items: center;
-            color: white;
-            height: 40px;
-            display: flex;
-            padding: 6px 10px;
-            text-align: right;
-            justify-content: space-between;
-             opacity: 0;
-            animation: home 1s ease forwards;
-            animation-delay: 0.1s;
-        }
-              @keyframes home{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-        .topquote{
-             opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 0.5s;
-        }
-             @keyframes second{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-        .buttons{ 
-            text-decoration: none;
-            margin: 30px;
-            text-align: center;
-            font-size: xx-large;   
-        }
-        .buttons a{ 
-            color: white;
-            text-decoration: none;
-            margin: 20px;
-            text-align: center;
-            font-size: x-large;   
-            display: inline-block;
-        }
-        .buttons a:hover{
-            transition: transform 0.3s ease;
-            transform: scale(1.3);
-        }
-        .types{
-            color: white;
-            font-size: large;
-     opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 1s;
-        }
-             @keyframes type{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-         .images{ 
-            padding: 10px;
-            font-size: large;
-            align-items: center;
-            gap:20px;
-            justify-content: center;
-         }
-         .images img{
-            width:280px;
-            height:280px;
-            object-fit: cover;
-            border: 2px solid white;
-            box-shadow: 4px 4px 10px rgb(166, 188, 23);
-         }
-         
-         .images h2{
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-                 opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 1.5s;
-         }
-        @keyframes img{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-        .images img:hover{
-            width:280px;
-            height: 280px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            transform: scale(1.3);
-         }
-         .lifecycle {
-             width: 80%;
-            height: 400px;
-            margin: auto;
-            font-size: 20px;
-            color: beige;
-            padding: 20px;
-                  columns: 3;
-column-gap: 40px;
-hyphens: auto;
-            text-align: justify;
-         }
-         .habitat {
-             width: 80%;
-            margin: auto;
-            font-size: 20px;
-            color: beige;
-            padding: 20px;
-         columns: 3;
-         hyphens: auto;
-column-gap: 40px;
 
-            text-align: justify;
-         }
-         .species-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .species-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  }
-        .footer{
-            height: auto;
-            min-height: 40px;
-            background-color:rgb(166, 188, 23) ;
-            text-align: center;
-            padding: 20px;
-            
+        /* NAV */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(166,188,23,0.2);
+            padding: 0 48px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.1s;
         }
-        .footer .line{
-            padding-top: 10px;
-        font-size: 20px;
+        @keyframes fadeup {
+            from { opacity:0; transform: translateY(16px); }
+            to   { opacity:1; transform: translateY(0); }
+        }
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .brand em { color: var(--accent); font-style: italic; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent-light); }
+
+        /* HERO QUOTE */
+        .page-hero {
+            padding: 80px 60px 60px;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.4s;
+        }
+        .page-hero .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-style: italic;
+            color: var(--accent-light);
+            max-width: 700px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .page-hero .quote-author {
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* SECTION */
+        .content-section {
+            padding: 60px;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.7s;
+        }
+        .section-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .divider {
+            width: 40px; height: 1px;
+            background: var(--accent);
+            margin-bottom: 36px;
+        }
+
+        /* SPECIES CARDS */
+        .species-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 0;
+        }
+        .species-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(166,188,23,0.25);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .species-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(166,188,23,0.6);
+        }
+        .species-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .species-card-body { padding: 16px; }
+        .species-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .species-card-body p {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* PROSE */
+        .prose-columns {
+            column-count: 3;
+            column-gap: 40px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.85;
+            text-align: justify;
+            hyphens: auto;
+        }
+        @media (max-width: 900px) { .prose-columns { column-count: 2; } }
+        @media (max-width: 560px) { .prose-columns { column-count: 1; } }
+
+        /* FOOTER */
+        footer {
+            background: rgba(0,0,0,0.6);
+            border-top: 1px solid rgba(166,188,23,0.2);
+            text-align: center;
+            padding: 28px;
+            margin-top: 60px;
+        }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .footer-sub {
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.35);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 24px; }
+            .page-hero, .content-section { padding: 40px 24px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="topbar">
-            
-             <div class="brand" style="color: white;">
-            🦋<span style="color: white; margin: 0px; ">Insecto</span><span style="color:rgb(166, 188, 23);font-family:Lucida Calligraphy">Pedia</span>
-             </div>
-              <div class="buttons">
-            <a href="#fs">Famous Species</a>
-            <a href="#lc">Life cycle </a>
-            <a href="#hb">Habitats</a>
-             </div> 
-            
+        <div class="brand">🦋 Insecto<em>Pedia</em></div>
+        <div class="nav-links">
+            <a href="#species">Species</a>
+            <a href="#lifecycle">Life Cycle</a>
+            <a href="#habitat">Habitats</a>
         </div>
-            </nav>   <br> 
-            <center>
-             <div class="topquote" style="color:rgb(209, 209, 14) ; font-family: lucida Calligraphy;">
-              <h1>  "Butterflies are self-propelled flowers"</h1>
-            </center>
-        </div>
-        <div class="para">
-            <p></p>
-        </div>
-        
-    </nav>        
-    <main>
-       <div class="types" style="margin-left: 30px; margin-right: 30px;">
-            <section id="fs">
-            <h1><span> <b>Famous Species</b></span></h1>
-            <hr> 
-            <!-- <div class="images">
-              <h2><span><img src="butter.jpg"><br>Monarch</span>
-              <span><img src="bw.jpg"><br>Birdwing</span>
-              <span><img src="bluemorpho.jpg"><br>Blue Morpho</span>
-              <span><img src="glasswing.webp"><br>Glasswing</span></h2>  
+    </nav>
+
+    <div class="page-hero">
+        <p class="quote">"Butterflies are self-propelled flowers."</p>
+        <span class="quote-author">— R.H. Heinlein</span>
+    </div>
+
+    <!-- FAMOUS SPECIES -->
+    <div class="content-section" id="species">
+        <div class="section-label">01 — FAMOUS SPECIES</div>
+        <h2 class="section-title">Notable Varieties</h2>
+        <div class="divider"></div>
+        <div class="species-grid">
+            <div class="species-card">
+                <img src="butter.jpg" alt="Monarch">
+                <div class="species-card-body">
+                    <h3>Monarch</h3>
+                    <p>Known for epic migrations across North America. Vibrant orange and black wings.</p>
+                </div>
             </div>
-            </section>
-        </div> -->
-        <!-- Famous Species Cards Section -->
-<section style="padding: 2rem 0;">
-  <!-- <h2 style="color: white; font-size: 1.8rem; margin-bottom: 0.5rem;">Famous Species</h2>
-  <hr style="border-color: #888; margin-bottom: 2rem;"> -->
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-
-    <!-- Monarch Card -->
-    <div class="species-card" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; overflow: hidden; text-align: center;">
-      <img src="butter.jpg" alt="Monarch Butterfly" style="width: 100%; height: 180px; object-fit: cover;">
-      <div style="padding: 1rem;">
-        <h3 style="color: white; font-size: 1.1rem; margin: 0 0 0.4rem;">Monarch</h3>
-        <p style="color: #ccc; font-size: 0.82rem; margin: 0;">Known for epic migrations across North America. Vibrant orange and black wings.</p>
-      </div>
-    </div>
-
-    <!-- Birdwing Card -->
-    <div class="species-card" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; overflow: hidden; text-align: center;">
-      <img src="bw.jpg" alt="Birdwing Butterfly" style="width: 100%; height: 180px; object-fit: cover;">
-      <div style="padding: 1rem;">
-        <h3 style="color: white; font-size: 1.1rem; margin: 0 0 0.4rem;">Birdwing</h3>
-        <p style="color: #ccc; font-size: 0.82rem; margin: 0;">Among the largest butterflies in the world. Found in the rainforests of Asia.</p>
-      </div>
-    </div>
-
-    <!-- Blue Morpho Card -->
-    <div class="species-card" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; overflow: hidden; text-align: center;">
-      <img src="bluemorpho.jpg" alt="Blue Morpho Butterfly" style="width: 100%; height: 180px; object-fit: cover;">
-      <div style="padding: 1rem;">
-        <h3 style="color: white; font-size: 1.1rem; margin: 0 0 0.4rem;">Blue Morpho</h3>
-        <p style="color: #ccc; font-size: 0.82rem; margin: 0;">Dazzling iridescent blue wings. Native to the tropical forests of Latin America.</p>
-      </div>
-    </div>
-
-    <!-- Glasswing Card -->
-    <div class="species-card" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; overflow: hidden; text-align: center;">
-      <img src="glasswing.webp" alt="Glasswing Butterfly" style="width: 100%; height: 180px; object-fit: cover;">
-      <div style="padding: 1rem;">
-        <h3 style="color: white; font-size: 1.1rem; margin: 0 0 0.4rem;">Glasswing</h3>
-        <p style="color: #ccc; font-size: 0.82rem; margin: 0;">Transparent wings make it nearly invisible. Found in Central and South America.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Add this CSS in your <style> tag -->
-
-  
-
-        <br><br>
-        <div class="lifecycle">
-            <section id="lc">
-                <h1><span> <b>Life Cycle</b></span></h1><hr>
-                <p>Butterflies have a four-stage life cycle, and like other holometabolous insects they undergo complete metamorphosis. Winged adults lay eggs on plant foliage on which their larvae, known as caterpillars, will feed. The caterpillars grow, sometimes very rapidly, and when fully developed, pupate in a chrysalis. When metamorphosis is complete, the pupal skin splits, the adult insect climbs out, expands its wings to dry, and flies off.
-
-Some butterflies, especially in the tropics, have several generations in a year, while others have a single generation, and a few in cold locations may take several years to pass through their entire life cycle.
-
-Butterflies are often polymorphic, and many species make use of camouflage, mimicry, and aposematism to evade their predators. Some, like the monarch and the painted lady, migrate over long distances. Many butterflies are attacked by parasites or parasitoids, including wasps, protozoans, flies, and other invertebrates, or are preyed upon by other organisms. Some species are pests because in their larval stages they can damage domestic crops or trees; other species are agents of pollination of some plants. Larvae of a few butterflies (e.g., harvesters) eat harmful insects, and a few are predators of ants, while others live as mutualists in association with ants. Culturally, butterflies are a popular motif in the visual and literary arts. The Smithsonian Institution says "butterflies are certainly [among] the most appealing creatures in nature". </p>
-            </section>
+            <div class="species-card">
+                <img src="bw.jpg" alt="Birdwing">
+                <div class="species-card-body">
+                    <h3>Birdwing</h3>
+                    <p>Among the largest butterflies in the world. Found in the rainforests of Asia.</p>
+                </div>
+            </div>
+            <div class="species-card">
+                <img src="bluemorpho.jpg" alt="Blue Morpho">
+                <div class="species-card-body">
+                    <h3>Blue Morpho</h3>
+                    <p>Dazzling iridescent blue wings. Native to the tropical forests of Latin America.</p>
+                </div>
+            </div>
+            <div class="species-card">
+                <img src="glasswing.webp" alt="Glasswing">
+                <div class="species-card-body">
+                    <h3>Glasswing</h3>
+                    <p>Transparent wings make it nearly invisible. Found in Central and South America.</p>
+                </div>
+            </div>
         </div>
-        <br><br>
-        <div class="habitat">
-            <section id="hb">
-                <h1><span> <b>Habitats</b></span></h1><hr>
-                <p> Butterflies can be found in nearly all types of habitat, including desert, wetlands, grassland, forest, and alpine. Some butterflies in the family Lycaenidae spend part of their lives underground! Their caterpillars are tended by ants in exchange for providing the ants with sweet honeydew.
+    </div>
 
-A butterfly's habitat depends on its species. There are many species, such as the Karner Blue (Lycaeides melissa samuelis), left, that have very specific habitat requirements and can't live anywhere else. The Karner Blue butterfly depends on a rare ecosystem called an Oak Savannah for its habitat, and since most of Ontario's Oak Savannahs were destroyed, this species no longer lives in Ontario and is now extirpated (locally extinct) from Canada. Alternatively, butterflies such as the Cabbage White are very adaptable and can be found in many different habitats and on many different continents.
-Butterflies inhabit diverse ecosystems worldwide, excluding Antarctica, thriving in warm climates that support larval host plants and adult nectar sources. Key habitats include tropical rainforests, grasslands, meadows, forests, wetlands, and alpine regions. They are also found in urban gardens and parks, which act as crucial ecological corridors. 
+    <!-- LIFE CYCLE -->
+    <div class="content-section" id="lifecycle">
+        <div class="section-label">02 — BIOLOGY</div>
+        <h2 class="section-title">Life Cycle</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            Butterflies have a four-stage life cycle, and like other holometabolous insects they undergo complete metamorphosis. Winged adults lay eggs on plant foliage on which their larvae, known as caterpillars, will feed. The caterpillars grow, sometimes very rapidly, and when fully developed, pupate in a chrysalis. When metamorphosis is complete, the pupal skin splits, the adult insect climbs out, expands its wings to dry, and flies off.
 
-Common Butterfly Habitats:
-1. Tropical Rainforests: High biodiversity, providing year-round food sources.
-2. Grasslands and Meadows: Open, sunny areas with abundant, low-growing vegetation.
-3. Forests and Woodlands: Diverse species inhabit forest edges and clearings.
-4. Wetlands and Marshes: Areas with specific host plants for larvae.
-5. Alpine Zones: Specialized, cold-tolerant species (e.g., Apollo butterfly) live in high-altitude meadows (400–2,300 meters).
-6. Urban/Human-Modified Areas: Gardens, parks, and greenways (e.g., small heath butterfly).
-7. Overwintering Sites: Specific, stable habitats like the pine-oak forests in Mexico for monarch butterflies. </p>
-            </section>
+            Some butterflies, especially in the tropics, have several generations in a year, while others have a single generation, and a few in cold locations may take several years to pass through their entire life cycle.
+
+            Butterflies are often polymorphic, and many species make use of camouflage, mimicry, and aposematism to evade their predators. Some, like the monarch and the painted lady, migrate over long distances. Many butterflies are attacked by parasites or parasitoids, including wasps, protozoans, flies, and other invertebrates, or are preyed upon by other organisms. Some species are pests because in their larval stages they can damage domestic crops or trees; other species are agents of pollination of some plants. Larvae of a few butterflies eat harmful insects, and a few are predators of ants, while others live as mutualists in association with ants. Culturally, butterflies are a popular motif in the visual and literary arts.
         </div>
+    </div>
 
-    </main>
-<br><br><br>
+    <!-- HABITATS -->
+    <div class="content-section" id="habitat">
+        <div class="section-label">03 — ECOLOGY</div>
+        <h2 class="section-title">Habitats</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            Butterflies can be found in nearly all types of habitat, including desert, wetlands, grassland, forest, and alpine zones. Some butterflies in the family Lycaenidae spend part of their lives underground — their caterpillars are tended by ants in exchange for providing sweet honeydew.
+
+            A butterfly's habitat depends on its species. Some species, such as the Karner Blue, have very specific habitat requirements and cannot live anywhere else. It depends on a rare Oak Savannah ecosystem. Alternatively, butterflies such as the Cabbage White are very adaptable and can be found in many different habitats and on many different continents.
+
+            Butterflies inhabit diverse ecosystems worldwide, excluding Antarctica, thriving in warm climates that support larval host plants and adult nectar sources. Key habitats include tropical rainforests, grasslands, meadows, forests, wetlands, alpine regions, and urban gardens. Gardens and parks act as crucial ecological corridors, supporting populations even in cities. Monarch butterflies famously overwinter in the pine-oak forests of Mexico, one of nature's great migration stories.
+        </div>
+    </div>
+
     <footer>
-            <div class="footer">
-            <div class="big"> 🦋<span style="color: white; margin: 0px; font-size: x-large;">Insecto</span><span style="color:white;font-family: Lucida Calligraphy; font-size: x-large; margin-left: -2px;">Pedia</span></div>
-            <div class="line">A reference guide to the world's most abundant animals&nbsp;&nbsp;Entomology & Natural History</div>
-        </div>
-        </footer>
+        <div class="footer-brand">🦋 InsectoPedia</div>
+        <div class="footer-sub">A REFERENCE GUIDE TO THE WORLD'S MOST ABUNDANT ANIMALS · ENTOMOLOGY & NATURAL HISTORY</div>
+    </footer>
 
 </body>
 </html>

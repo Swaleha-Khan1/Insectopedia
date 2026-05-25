@@ -4,312 +4,299 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silkworm • InsectoPedia</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
-        body{
-            font-family: inherit !important;
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(sbg.jpg);
-            background-repeat: no-repeat !important;
-            background-size: cover !important;
-            padding-left: 50px !important;
-            padding-right: 50px !important;
-        }
-        html{
-             scroll-behavior: smooth;
-        }
-        .topbar{
-             font-size: x-large !important;
-             padding-top: 40px;
-             margin-left: -40px;
-             margin-right: -40px;
-             padding-left: 40px !important;
-             padding-right: 40px !important;
-            align-items: center !important;
-            color: white;
-            height: 40px !important;
-            display: flex !important;
-            /* padding: 6px 10px !important; */
-                   opacity: 0;
-            animation: home 1s ease forwards;
-            animation-delay: 0.1s;
-            text-align: right !important;
-            justify-content: space-between !important;
-        }
-           @keyframes home{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-                .topquote{
-             opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 0.5s;
-        }
-             @keyframes second{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-    .types{
-            color: white;
-            font-size: large !important;
-     opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 1s;
-        }
-             @keyframes type{
-            from{
-                opacity:0;
-                transform: translateY(30px);
-            }
-            to{
-                opacity:1;
-                transform: translateY(0);
-            }
-        }
-        body .buttons{ 
-            text-decoration: none;
-            margin: 30px !important;
-            text-align: center !important;
-            font-size: xx-large !important;   
-        }
-        body .buttons a{ 
-            color: white ;
-            text-decoration: none;
-            margin: 20px !important;
-            text-align: center !important;
-            font-size: x-large !important;   
-            display: inline-block !important;
-        }
-        body .buttons a:hover{
-            transition: transform 0.3s ease;
-            transform: scale(1.3);
-        }
-     
-        body .images{ 
-            padding: 10px !important;
-            font-size: large !important;
-            align-items: center;
-            gap:20px ;
-            justify-content: center !important;
+        :root {
+            --accent: #a6bc17;
+            --accent-light: #c8dc3a;
+            --accent-dim: rgba(166,188,23,0.18);
+            --bg-overlay: rgba(0,0,0,0.55);
         }
 
-        body .images img{
-            width:280px;
-            height:280px;
-            object-fit: cover;
-            border: 2px solid white;
-            box-shadow: 4px 4px 10px rgb(166, 188, 23);
-       
-         }
-         
-        body .images h2{
+        html { scroll-behavior: smooth; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url(sbg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #f0ede4;
+            font-family: 'Lora', Georgia, serif;
+            min-height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-dim);
+            padding: 0 48px; height: 60px;
+            display: flex; align-items: center; justify-content: space-between;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.1s;
+        }
+        @keyframes fadeup {
+            from { opacity:0; transform: translateY(16px); }
+            to   { opacity:1; transform: translateY(0); }
+        }
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; color: #fff;
+        }
+        .brand em { color: var(--accent); font-style: italic; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent-light); }
+
+        /* ── HERO QUOTE ── */
+        .page-hero {
+            padding: 80px 60px 60px;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.4s;
+        }
+        .page-hero .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-style: italic;
+            color: var(--accent-light);
+            max-width: 700px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .page-hero .quote-author {
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ── CONTENT SECTIONS ── */
+        .content-section {
+            padding: 60px;
+            opacity: 0;
+            animation: fadeup 0.8s ease forwards 0.7s;
+        }
+        .section-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .divider {
+            width: 40px; height: 1px;
+            background: var(--accent);
+            margin-bottom: 36px;
+        }
+
+        /* ── CAROUSEL ── */
+        .carousel {
+            position: relative;
+            width: 60%;
+            margin: 0 auto 36px;
+            overflow: hidden;
+            border: 1px solid var(--accent-dim);
+        }
+        .carousel-track {
             display: flex;
-            text-align: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap !important;
-                   opacity: 0;
-            animation: second 1s ease forwards;
-            animation-delay: 1.5s;
-         }
-    
-        
-        body .fs {
-            all:revert;
-             width: 80% ;
-            margin: auto !important;
-            font-size: 20px !important;
-            color: white;
-            padding: 20px !important;
-            word-spacing: -2px;
-            columns:3 !important;
-            column-gap: 40px !important;
-            text-align: justify !important;
-         }
-        body .lifecycle {
-             width: 80%;
-            margin: auto !important;
-            font-size: 20px !important;
-            color: white;
-            word-spacing: -2px;
-            padding: 20px !important;
-            columns:3 !important;
-            column-gap: 40px !important;
-            text-align: justify !important;
-         }
-         
-        body .habitat {
-             width: 80%;
-            margin: auto !important;
-            font-size: 20px !important;
-            color: white;
-            padding: 20px !important;
-            columns:3 !important;
-            hyphens: auto;
-            word-spacing: -2px;
-            column-gap: 40px !important;
-            text-align: justify !important;
-         }
-        body .footer{
-            height: auto;
-            min-height: 40px;
-            background-color:rgb(144, 221, 144) ;
-            text-align: center;
-            padding: 20px;
-            
+            transition: transform 0.5s ease;
         }
-        h1,h2,h3{
-            font-weight: bold;
-            margin:0 !important;
-            padding:10px 0;
-        }
-        hr{
-            margin: 5px 0 !important;
-        }
-        body .footer .line{
-            padding-top: 10px;
-        font-size: 20px;
-        }
-        #carouselExampleControls{
-            width: 50%;
-            margin: 20px auto;
+        .carousel-track img {
+            min-width: 100%;
+            height: 340px;
+            object-fit: cover;
             display: block;
         }
-        .carousel-inner img{
-            height:300px;
-            object-fit: cover;
-            width: 100%;
-            border: 2px solid white;;
+        .carousel-btn {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.45);
+            color: var(--accent);
+            border: 1px solid var(--accent-dim);
+            width: 40px; height: 40px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+            z-index: 2;
+        }
+        .carousel-btn:hover { background: rgba(166,188,23,0.25); }
+        .carousel-btn.prev { left: 12px; }
+        .carousel-btn.next { right: 12px; }
+        .carousel-dots {
+            display: flex; justify-content: center; gap: 8px;
+            padding: 12px 0 4px;
+        }
+        .carousel-dots span {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .carousel-dots span.active { background: var(--accent); }
+        @media (max-width: 768px) { .carousel { width: 100%; } }
+
+        /* ── PROSE ── */
+        .prose-columns {
+            column-count: 3;
+            column-gap: 40px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.9;
+            text-align: justify;
+            hyphens: auto;
+        }
+        @media (max-width: 900px) {
+            .prose-columns { column-count: 2; }
+        }
+        @media (max-width: 560px) {
+            .prose-columns { column-count: 1; }
+            .silk-images { grid-template-columns: 1fr; }
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: rgba(0,0,0,0.6);
+            border-top: 1px solid var(--accent-dim);
+            text-align: center;
+            padding: 28px;
+            margin-top: 60px;
+        }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .footer-sub {
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 24px; }
+            .page-hero, .content-section { padding: 40px 24px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="topbar">
-            
-             <div class="brand" style="color: white;">
-            🦋<span style="color: white; margin: 0px; ">Insecto</span><span style="color:rgb(166, 188, 23);font-family:Lucida Calligraphy">Pedia</span>
-             </div>
-              <div class="buttons">
-            <a href="#fs">Cocoon & Silk</a>
-            <a href="#lc">Life cycle </a>
-            <a href="#hb">Sericulture</a>
-             </div> 
-            
+        <div class="brand">🦋 Insecto<em>Pedia</em></div>
+        <div class="nav-links">
+            <a href="#silk">Cocoon & Silk</a>
+            <a href="#lifecycle">Life Cycle</a>
+            <a href="#sericulture">Sericulture</a>
         </div>
-            </nav>   <br> 
-            <center>
-             <div class="topquote" style="color: rgb(144, 221, 144)  ; font-family: lucida Calligraphy; margin: 30px;">
-              <h2> "The silkworm dies only when its silk is exhausted."</h2>
-            </center>
-        </div>
-        <div class="para">
-            <p> </p>
-        </div>
-        
-    </nav>        
-    <main>
-        <div class="types">
-            <section id="fs">
-            <h1><span> <b>Cocoon & Silk</b></span></h1>
-            <hr> <center><br>
-            <!-- <div class="images" style="width: 50%; min-height: 50px; height: auto;"> -->
-              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="silk.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="cocoon.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="silk3.webp" class="d-block w-100" alt="...">
-    </div>
-     <div class="carousel-item">
-      <img src="cocoon2.webp" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-              </div>
-              </center>
-              <div class="fs">
-              <p>Silk is a natural protein fiber produced by silkworms (most commonly Bombyx mori) to create a protective cocoon. Over 2–3 days, a single larva spins a continuous filament up to 1,000 meters long, consisting of fibroin (structure) and sericin (glue). Farmers harvest cocoons, killing the pupae inside to prevent breaking the fiber, then reel the silk. 
+    </nav>
 
-Key Aspects of Cocoons and Silk Production
-Production Process (Sericulture): Larvae feed on mulberry leaves, then spin a white-yellow cocoon.
-The Transformation: The larva transforms into a pupa inside the cocoon, providing a protected, warm environment for this phase.
-Reeling & Processing: Cocoons are placed in hot water/steam to soften the sericin (degumming) and allow the single, unbroken filament to be unraveled, or reeled.
-Harvesting Methods: Generally, pupae are killed during processing to keep the filament intact. However, in "Ahimsa" or peace silk, cocoons are used after the moth has naturally emerged.
-Composition: Silk is a strong natural fiber with a protein composition of 70-80% fibroin and 20-30% sericin.
-Uses: Beyond luxury textiles, silk is used in medical applications to stitch wounds and repair tendons due to its strength. 
+    <div class="page-hero">
+        <p class="quote">"The silkworm dies only when its silk is exhausted."</p>
+        <span class="quote-author">— Chinese Proverb</span>
+    </div>
 
-</p>
+    <!-- COCOON & SILK -->
+    <div class="content-section" id="silk">
+        <div class="section-label">01 — Production</div>
+        <h2 class="section-title">Cocoon & Silk</h2>
+        <div class="divider"></div>
+        <div class="carousel" id="silkCarousel">
+            <div class="carousel-track" id="carouselTrack">
+                <img src="silk.jpg" alt="Silk threads">
+                <img src="cocoon.jpg" alt="Silkworm cocoon">
+                <img src="silk3.webp" alt="Silk fabric">
+                <img src="cocoon2.webp" alt="Cocoon close-up">
+            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#8592;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#8594;</button>
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
 
-            </section>
-        </div>
-        <br><br>
-        <div class="lifecycle">
-            <section id="lc">
-                <h1><span> <b>Life Cycle</b></span></h1><hr>
-                <p>The life cycle of a silkworm (Bombyx mori) consists of four main stages—egg, larva (silkworm), pupa (cocoon), and adult (moth)—typically completed in 45–55 days. Larvae hatch from eggs and feed on mulberry leaves, then spin a silk cocoon. The pupa transforms into a moth inside the cocoon. 
-                    Key Stages in the Life Cycle:
-1. Egg (10–14 days): A female moth lays up to 350-500 eggs, often on Mulberry leaves. These eggs remain dormant until hatching in warm conditions.
-2. Larva/Silkworm (20–30 days): The hatched hairy caterpillars consume large quantities of Mulberry leaves. They grow rapidly and molt four times over roughly 27 days.
-3. Cocoon (10–14 days): The larva spins a protective cocoon, made from a single, continuous silk thread that can be up to 900 meters long, using a protein secreted from its salivary glands.
-4. Pupa: Inside the cocoon, the larva matures into a pupa, transforming from a yellow/white creature into a brown pupa.
-5. Adult/Moth (3–4 days): The adult moth emerges from the cocoon using specialized enzymes, mates, and the female lays eggs, starting the cycle again. The moths are flightless and do not eat </p>
-            </section>
-        </div>
-        <br><br>
-        <div class="habitat">
-            <section id="hb">
-                <h1><span> <b>Sericulture</b></span></h1><hr>
-                <p>
-Sericulture, or silk farming, is the agro-based industry of rearing silkworms—primarily Bombyx mori—for raw silk production, involving mulberry cultivation, caterpillar rearing, and reeling cocoons to extract silk fibers. It is a highly employment-oriented, labor-intensive, and eco-friendly rural enterprise, offering high returns on low investment. 
-Central Silk Board
-Central Silk Board
- +4
-Key Aspects of Sericulture
-The Process: Involves cultivating mulberry trees, rearing silkworms (feeding them leaves for ~4-6 weeks), harvesting cocoons, and reeling, which is the process of unwinding the silk filament from the cocoons.
-Types of Silk: The four main types of commercial silk produced are Mulberry, Eri, Tasar, and Muga.
-Major Producers: China is the world’s leading silk producer, followed by India.
-Economic Impact: It provides income for millions in rural India, with key production areas in Karnataka, Andhra Pradesh, Tamil Nadu, and Jammu & Kashmir.
-Life Cycle: Silkworms go through four stages: egg, larva (caterpillar), pupa (inside the cocoon), and moth, with the entire life cycle lasting about 50 days. 
-</p>
-            </section>
-        </div>
+        <script>
+            let current = 0;
+            const track = document.getElementById('carouselTrack');
+            const imgs = track.querySelectorAll('img');
+            const dotsContainer = document.getElementById('carouselDots');
 
-    </main>
-<br><br><br>
+            imgs.forEach((_, i) => {
+                const d = document.createElement('span');
+                if (i === 0) d.classList.add('active');
+                d.onclick = () => goTo(i);
+                dotsContainer.appendChild(d);
+            });
+
+            function goTo(n) {
+                current = (n + imgs.length) % imgs.length;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dotsContainer.querySelectorAll('span').forEach((d, i) =>
+                    d.classList.toggle('active', i === current));
+            }
+            function moveSlide(dir) { goTo(current + dir); }
+
+            // Auto-advance every 4s
+            setInterval(() => moveSlide(1), 4000);
+        </script>
+        <div class="prose-columns">
+            Silk is a natural protein fibre produced by silkworms — most commonly Bombyx mori — to create a protective cocoon. Over 2–3 days, a single larva spins a continuous filament up to 1,000 metres long, consisting of fibroin for structure and sericin as a natural glue binding the thread together.
+
+            The production process begins with larvae feeding on mulberry leaves before spinning a white-yellow cocoon. The larva then transforms into a pupa inside the cocoon, which provides a protected, warm environment for this critical phase. To harvest silk, cocoons are placed in hot water or steam to soften the sericin — a process called degumming — allowing the single unbroken filament to be carefully unravelled and reeled onto spools.
+
+            In conventional harvesting, pupae are killed during processing to keep the filament intact. However, in "Ahimsa" or peace silk, the cocoons are used only after the moth has naturally emerged. Silk is a remarkably strong natural fibre — its protein composition of 70–80% fibroin and 20–30% sericin gives it tensile properties comparable to nylon. Beyond luxury textiles, silk has long been used in medical applications to stitch wounds and repair tendons owing to its strength and biocompatibility.
+        </div>
+    </div>
+
+    <!-- LIFE CYCLE -->
+    <div class="content-section" id="lifecycle">
+        <div class="section-label">02 — Biology</div>
+        <h2 class="section-title">Life Cycle</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            The life cycle of a silkworm (Bombyx mori) consists of four main stages — egg, larva, pupa, and adult moth — typically completed in 45–55 days. Each stage is distinct and precisely timed, shaped by thousands of years of domestication alongside human sericulture.
+
+            The cycle begins with the egg stage, lasting 10–14 days. A female moth lays up to 350–500 eggs, often deposited on mulberry leaves. These eggs remain dormant until hatching in warm conditions. The larval stage follows over 20–30 days: hatched caterpillars consume large quantities of mulberry leaves, growing rapidly and moulting four times. During the cocoon stage (10–14 days), the larva spins a protective cocoon from a single continuous silk thread up to 900 metres long, secreted from its salivary glands.
+
+            Inside the cocoon, the larva matures into a pupa, transforming from a pale yellow-white creature into a brown pupa. Finally, the adult moth emerges using specialised enzymes to dissolve a small opening. Adults are flightless, do not eat, and live only 3–4 days — just long enough to mate and lay eggs, restarting the entire cycle once more.
+        </div>
+    </div>
+
+    <!-- SERICULTURE -->
+    <div class="content-section" id="sericulture">
+        <div class="section-label">03 — Industry</div>
+        <h2 class="section-title">Sericulture</h2>
+        <div class="divider"></div>
+        <div class="prose-columns">
+            Sericulture, or silk farming, is the agro-based industry of rearing silkworms for raw silk production. It encompasses mulberry cultivation, caterpillar rearing, and the reeling of cocoons to extract silk fibres. It is a highly labour-intensive yet eco-friendly rural enterprise that offers high returns on relatively low investment.
+
+            The full process involves cultivating mulberry trees, rearing silkworms on their leaves for 4–6 weeks, harvesting cocoons, and reeling — the careful unwinding of the silk filament. Four main types of commercial silk are produced: Mulberry, Eri, Tasar, and Muga, each sourced from a different species of silkworm and with distinct texture, lustre, and properties.
+
+            China is the world's leading silk producer, followed closely by India. In India, sericulture provides income for millions of people in rural areas, with key production centres in Karnataka, Andhra Pradesh, Tamil Nadu, and Jammu & Kashmir. The industry represents one of the rare intersections of ancient craft and modern agro-industry, supporting livelihoods and cultural heritage simultaneously.
+        </div>
+    </div>
+
     <footer>
-            <div class="footer">
-            <div class="big"> 🦋<span style="color: white; margin: 0px; font-size: x-large;">Insecto</span><span style="color:white;font-family: Lucida Calligraphy; font-size: x-large; margin-left: -2px;">Pedia</span></div>
-            <div class="line">A reference guide to the world's most abundant animals&nbsp;&nbsp;Entomology & Natural History</div>
-        </div>
-        </footer>
+        <div class="footer-brand">🦋 InsectoPedia</div>
+        <div class="footer-sub">A reference guide to the world's most abundant animals · Entomology & Natural History</div>
+    </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>
